@@ -289,14 +289,14 @@
           "tag": "TG-US",
           "type": "remote",
           "format": "binary",
-          "url": "https://ghfast.top/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/TelegramSG/TelegramUS.srs",
+          "url": "https://ghfast.top/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/TelegramUS/TelegramUS.srs",
           "download_detour": "direct"
         },
         {
           "tag": "TG-EU",
           "type": "remote",
           "format": "binary",
-          "url": "https://ghfast.top/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/TelegramSG/TelegramNL.srs",
+          "url": "https://ghfast.top/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/TelegramNL/TelegramNL.srs",
           "download_detour": "direct"
         },
         {
