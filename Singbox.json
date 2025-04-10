@@ -73,7 +73,7 @@
             {"rule_set": ["Steam","Epic"],"action": "route","outbound": "Game"},
             {"rule_set": ["geolocation-!cn"],"action": "route","outbound": "Proxy"},
             {"action": "resolve"},
-            {"rule_set": ["ChinaDomain","ChinaIP",],"action": "route","outbound": "direct"}
+            {"rule_set": ["ChinaDomain","ChinaIP"],"action": "route","outbound": "direct"}
         ],
         "auto_detect_interface": true,
         "final": "Final"
