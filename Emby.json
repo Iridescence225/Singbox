@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain": [
+        "pdatv.cc",
+        "d.pdatv.cc",
+        "eggtartemby.itsmyduty.top",
+        "hk-slimemby.itsmyduty.top",
+        "jp-slimemby.itsmyduty.top",
+        "hk.lilyemby.my",
+        "jp.lilyemby.my",
+        "cf.lilyemby.my",
+        "kessoku-bando.biliblili.uk",
+        "yhemby.top",
+        "tanhuatv.site",
+        "cfloacl.emby.moe",
+        "pe.cn2gias.uk",
+        "media.nijigem.by",
+        "default.cdn.bgp.yt",
+        "us-w.cdn.bgp.yt",
+        "ct.cdn.bgp.yt",
+        "pili.994959.xyz",
+        "caddy.pilipili.me",
+        "stream2.jingzhe.pro",
+        "emby.jingzhe.pro"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "xmsl.org",
+        "emby.wtf",
+        "term.wtf",
+        "pilipiliultra.com",
+        "charontv.com",
+        "bangumi.ca"
+      ]
+    }
+  ]
+}
