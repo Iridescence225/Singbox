@@ -17,19 +17,19 @@ let proxies = await produceArtifact({
 config.outbounds.push(...proxies)
 
 config.outbounds.map(i => {
-  if (['香港'].includes(i.tag)) {
+  if (['🇭🇰 香港'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /港|hk|hongkong|kong kong|🇭🇰/i))
   }
-  if (['台湾'].includes(i.tag)) {
+  if (['🇨🇳 台湾'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /台|tw|taiwan|🇹🇼/i))
   }
-  if (['日本'].includes(i.tag)) {
+  if (['🇯🇵 日本'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /日本|jp|japan|🇯🇵/i))
   }
-  if (['新加坡'].includes(i.tag)) {
+  if (['🇸🇬 新加坡'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /^(?!.*(?:us)).*(新|sg|singapore|🇸🇬)/i))
   }
-  if (['美国'].includes(i.tag)) {
+  if (['🇺🇸 美国'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /美|us|unitedstates|united states|🇺🇸/i))
   }
 })
