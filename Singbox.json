@@ -49,7 +49,7 @@
             {"tag": "Github", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Github.srs", "download_detour": "direct"},
             {"tag": "Twitter", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Twitter.srs", "download_detour": "direct"},
             {"tag": "AI", "type": "remote", "format": "binary", "url": "https://git.repcz.link/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs", "download_detour": "direct"},
-            {"tag": "Emby", "type": "remote", "format": "so", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/Emby.json", "download_detour": "direct"},
+            {"tag": "Emby", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/Emby.json", "download_detour": "direct"},
             {"tag": "Epic", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Epic.srs", "download_detour": "direct"},
             {"tag": "Steam", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Steam.srs", "download_detour": "direct"},
             {"tag": "Spotify", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Spotify.srs", "download_detour": "direct"},
