@@ -20,9 +20,6 @@ config.outbounds.map(i => {
   if (['🇭🇰 香港'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /港|hk|hongkong|kong kong|🇭🇰/i))
   }
-  if (['🇨🇳 台湾'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /台|tw|taiwan|🇹🇼/i))
-  }
   if (['🇯🇵 日本'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /日本|jp|japan|🇯🇵/i))
   }
