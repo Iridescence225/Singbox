@@ -24,13 +24,13 @@ config.outbounds.map(i => {
     i.outbounds.push(...getTags(proxies, /日本|jp|japan|🇯🇵/i))
   }
   if (['🇸🇬 新加坡'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /^(?!.*(?:us)).*(新|sg|singapore|🇸🇬)/i))
+    i.outbounds.push(...getTags(proxies, /新|sg|singapore|🇸🇬/i))
   }
   if (['🇺🇸 美国'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /美|USA|unitedstates|united states|🇺🇸/i))
   }
   if (['TG-SG'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /^(?!.*(?:us)).*(新|sg|singapore|🇸🇬)/i))
+    i.outbounds.push(...getTags(proxies, /新|sg|singapore|🇸🇬/i))
   }
   if (['TG-US'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /美|us|unitedstates|united states|🇺🇸/i))
