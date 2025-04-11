@@ -29,8 +29,14 @@ config.outbounds.map(i => {
   if (['🇺🇸 美国'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /美|us|unitedstates|united states|🇺🇸/i))
   }
-  if (['Telegram'].includes(i.tag)) {
+  if (['TG-SG'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /^(?!.*(?:us)).*(新|sg|singapore|🇸🇬)/i))
+  }
+  if (['TG-US'].includes(i.tag)) {
+    i.outbounds.push(...getTags(proxies, /美|us|unitedstates|united states|🇺🇸/i))
+  }
+  if (['TG-EU'].includes(i.tag)) {
+    i.outbounds.push(...getTags(proxies, /德|荷|DE|NL|Germany|Netherlands|🇩🇪|🇳🇱/i))
   }
 })
 
