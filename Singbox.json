@@ -19,23 +19,17 @@
     },
     "outbounds": [
         {"tag": "direct","type": "direct"},
-        {"tag": "Proxy","type": "selector","outbounds": ["🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","🇨🇳 台湾","direct"],"default": "direct","interrupt_exist_connections": true},
-        {"tag": "AI","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","🇨🇳 台湾"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "Google","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","🇨🇳 台湾"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "Microsoft","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","🇨🇳 台湾","direct"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "Twitter","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","🇨🇳 台湾"],"default": "Proxy","interrupt_exist_connections": true},
+        {"tag": "Proxy","type": "selector","outbounds": ["🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "direct","interrupt_exist_connections": true},
         {"tag": "Telegram","type": "selector","outbounds": [],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "Emby","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","🇨🇳 台湾","direct"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "Game","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","🇨🇳 台湾","direct"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "Spotify","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","🇨🇳 台湾","direct"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "ProxyMedia","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","🇨🇳 台湾"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "Final","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","🇨🇳 台湾","direct"],"default": "Proxy","interrupt_exist_connections": true},
+        {"tag": "Emby","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
+        {"tag": "Speedtest","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
+        {"tag": "Final","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
 
         {"tag": "🇸🇬 新加坡","type": "selector","outbounds": []},
         {"tag": "🇭🇰 香港","type": "selector","outbounds": []},
         {"tag": "🇺🇸 美国","type": "selector","outbounds": []},
-        {"tag": "🇯🇵 日本","type": "selector","outbounds": []},
-        {"tag": "🇨🇳 台湾","type": "selector","outbounds": []}
+        {"tag": "🇯🇵 日本","type": "selector","outbounds": []}
+
 
     ],
     "route": {
@@ -51,6 +45,7 @@
             {"tag": "Twitter", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Twitter.srs", "download_detour": "direct"},
             {"tag": "AI", "type": "remote", "format": "binary", "url": "https://git.repcz.link/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs", "download_detour": "direct"},
             {"tag": "Emby", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/Emby.json", "download_detour": "direct"},
+            {"tag": "Speedtest", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/Emby.json", "download_detour": "direct"},
             {"tag": "Epic", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Epic.srs", "download_detour": "direct"},
             {"tag": "Steam", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Steam.srs", "download_detour": "direct"},
             {"tag": "Spotify", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Spotify.srs", "download_detour": "direct"},
@@ -64,18 +59,16 @@
             {"ip_is_private": true,"action": "route","outbound": "direct"},
             {"clash_mode": "全局直连","action": "route","outbound": "direct"},
             {"clash_mode": "全局代理","action": "route","outbound": "Proxy"},
-            {"clash_mode": "FCM","action": "route","outbound": "direct"},
             {"rule_set": ["Ads"],"action": "reject"},
-            {"rule_set": ["AI"],"action": "route","outbound": "AI"},
-            {"rule_set": ["YouTube","Google"],"action": "route","outbound": "Google"},
-            {"rule_set": ["Microsoft","OneDrive","Github"],"action": "route","outbound": "Microsoft"},
-            {"rule_set": ["Twitter"],"action": "route","outbound": "Twitter"},
+            {"rule_set": ["AI"],"action": "route","outbound": "🇺🇸 美国"},
+            {"rule_set": ["YouTube","Google","Spotify"],"action": "route","outbound": "🇸🇬 新加坡"},
+            {"rule_set": ["Microsoft","OneDrive","Github","Twitter","Steam","Epic"],"action": "route","outbound": "🇭🇰 香港"},
             {"rule_set": ["Telegram"],"action": "route","outbound": "Telegram"},
             {"rule_set": ["Emby"],"action": "route","outbound": "Emby"},
-            {"rule_set": ["Steam","Epic"],"action": "route","outbound": "Game"},
+            {"rule_set": ["Speedtest"],"action": "route","outbound": "Speedtest"},
             {"rule_set": ["geolocation-!cn"],"action": "route","outbound": "Proxy"},
             {"action": "resolve"},
-            {"rule_set": ["ChinaDomain","ChinaIP"],"action": "route","outbound": "direct"}
+            {"rule_set": ["FCM","ChinaDomain","ChinaIP"],"action": "route","outbound": "direct"}
         ],
         "auto_detect_interface": true,
         "final": "Final"
