@@ -20,7 +20,9 @@
     "outbounds": [
         {"tag": "direct","type": "direct"},
         {"tag": "Proxy","type": "selector","outbounds": ["🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "direct","interrupt_exist_connections": true},
-        {"tag": "Telegram","type": "selector","outbounds": [],"default": "Proxy","interrupt_exist_connections": true},
+        {"tag": "TG-SG","type": "selector","outbounds": [],"default": "Proxy","interrupt_exist_connections": true},
+        {"tag": "TG-US","type": "selector","outbounds": [],"default": "Proxy","interrupt_exist_connections": true},
+        {"tag": "TG-EU","type": "selector","outbounds": [],"default": "Proxy","interrupt_exist_connections": true},
         {"tag": "Emby","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
         {"tag": "Speedtest","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
         {"tag": "Final","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
@@ -35,7 +37,9 @@
     "route": {
         "rule_set": [
             {"tag": "Ads","type": "remote","format": "binary","url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Ads_SukkaW.srs","download_detour": "direct"},
-            {"tag": "Telegram", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Telegram.srs", "download_detour": "direct"},
+            {"tag": "TG-SG", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/Emby.json", "download_detour": "direct"},
+            {"tag": "TG-US", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/Emby.json", "download_detour": "direct"},
+            {"tag": "TG-EU", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/Emby.json", "download_detour": "direct"},
             {"tag": "YouTube", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/YouTube.srs", "download_detour": "direct"},
             {"tag": "Google", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Google.srs", "download_detour": "direct"},
             {"tag": "FCM", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/senshinya/singbox_ruleset/raw/main/rule/GoogleFCM/GoogleFCM.srs", "download_detour": "direct"},
@@ -63,7 +67,9 @@
             {"rule_set": ["AI"],"action": "route","outbound": "🇺🇸 美国"},
             {"rule_set": ["YouTube","Google","Spotify"],"action": "route","outbound": "🇸🇬 新加坡"},
             {"rule_set": ["Microsoft","OneDrive","Github","Twitter","Steam","Epic"],"action": "route","outbound": "🇭🇰 香港"},
-            {"rule_set": ["Telegram"],"action": "route","outbound": "Telegram"},
+            {"rule_set": ["TG-SG"],"action": "route","outbound": "TG-SG"},
+            {"rule_set": ["TG-US"],"action": "route","outbound": "TG-US"},
+            {"rule_set": ["TG-EU"],"action": "route","outbound": "TG-EU"},
             {"rule_set": ["Emby"],"action": "route","outbound": "Emby"},
             {"rule_set": ["Speedtest"],"action": "route","outbound": "Speedtest"},
             {"rule_set": ["geolocation-!cn"],"action": "route","outbound": "Proxy"},
