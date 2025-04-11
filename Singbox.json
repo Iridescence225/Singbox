@@ -20,9 +20,9 @@
     "outbounds": [
         {"tag": "direct","type": "direct"},
         {"tag": "Proxy","type": "selector","outbounds": ["🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "direct","interrupt_exist_connections": true},
-        {"tag": "TG-SG","type": "selector","outbounds": ["Proxy"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "TG-US","type": "selector","outbounds": ["Proxy"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "TG-EU","type": "selector","outbounds": ["Proxy"],"default": "Proxy","interrupt_exist_connections": true},
+        {"tag": "TG-SG","type": "selector","outbounds": [],"default": "Proxy","interrupt_exist_connections": true},
+        {"tag": "TG-US","type": "selector","outbounds": [],"default": "Proxy","interrupt_exist_connections": true},
+        {"tag": "TG-EU","type": "selector","outbounds": [],"default": "Proxy","interrupt_exist_connections": true},
         {"tag": "Emby","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
         {"tag": "Speedtest","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
         {"tag": "Final","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
