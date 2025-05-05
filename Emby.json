@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain": [
+        "pandtv.de",
         "eggtartemby.itsmyduty.top",
         "hk-slimemby.itsmyduty.top",
         "jp-slimemby.itsmyduty.top",
@@ -26,7 +27,6 @@
     },
     {
       "domain_suffix": [
-        "pandtv.de",
         "xmsl.org",
         "emby.wtf",
         "term.wtf",
