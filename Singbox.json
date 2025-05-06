@@ -2,15 +2,16 @@
     "dns": {
         "servers": [
             {"tag": "cloudflare","address": "https://1.1.1.1/dns-query","detour": "Proxy"},
-            {"tag": "ali","address": "223.5.5.5","detour": "direct"},
-            {"tag": "remote_fakeip","address": "fakeip"}
+            {"tag": "ali","address": "https://223.5.5.5/dns-query","detour": "direct"},
+            {"tag": "fakeip","address": "fakeip"}
         ],
         "rules": [
-            {"outbound": "any","server": "ali"},
+            {"outbound": "any","action": "route","server": "ali","disable_cache": true},
             {"clash_mode": "全局直连","action": "route","server": "ali"},
-            {"clash_mode": "全局代理","action": "route","server": "remote_fakeip"},
+            {"clash_mode": "全局代理","action": "route","server": "fakeip"},
             {"query_type": "HTTPS","action": "reject"},
-            {"query_type": ["A","AAAA"],"action": "route","server": "remote_fakeip","rewrite_ttl": 1},
+            {"query_type": ["A","AAAA"],"action": "route","server": "fakeip","rewrite_ttl": 1},
+            {"rule_set": ["cn_domain"],"action": "route","server": "ali"},
             {"rule_set": ["ChinaDomain"],"action": "route","server": "ali"}
         ],
         "final": "cloudflare",
@@ -53,6 +54,7 @@
             {"tag": "Epic", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Epic.srs", "download_detour": "direct"},
             {"tag": "Steam", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Steam.srs", "download_detour": "direct"},
             {"tag": "Spotify", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Spotify.srs", "download_detour": "direct"},
+            {"tag": "cn_domain","type": "remote","format": "binary","url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/cn.srs","download_detour": "direct"},
             {"tag": "ChinaDomain", "type": "remote", "format": "binary", "url": "https://git.repcz.link/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs", "download_detour": "direct"},
             {"tag": "ChinaIP", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Loyalsoldier/geoip/raw/release/srs/cn.srs", "download_detour": "direct"},
             {"tag": "geolocation-!cn","type": "remote","format": "binary","url": "https://git.repcz.link/raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs","download_detour": "direct"}
@@ -71,10 +73,10 @@
             {"rule_set": ["TG-US"],"action": "route","outbound": "TG-US"},
             {"rule_set": ["TG-EU"],"action": "route","outbound": "TG-EU"},
             {"rule_set": ["Emby"],"action": "route","outbound": "Emby"},
-            {"rule_set": ["Speedtest"],"action": "route","outbound": "Speedtest"},
+            {"rule_set": ["Speedtest"],"action": "route","outbound": "Proxy"},
             {"rule_set": ["geolocation-!cn"],"action": "route","outbound": "Proxy"},
             {"action": "resolve"},
-            {"rule_set": ["FCM","ChinaDomain","ChinaIP"],"action": "route","outbound": "direct"}
+            {"rule_set": ["FCM","ChinaDomain","ChinaIP","cn_domain"],"action": "route","outbound": "direct"}
         ],
         "auto_detect_interface": true,
         "final": "Final"
@@ -98,28 +100,27 @@
             "external_ui_download_detour": "Proxy"
         }
     },
-    "inbounds": [
-        {
-            "type": "mixed",
-            "listen": "127.0.0.1",
-            "listen_port": 2325,
-            "set_system_proxy": false
-        },
-        {
-            "type": "tun",
-            "address": [
-                "172.18.0.1/30",
-                "fdfe:dcba:9876::1/126"
-            ],
-            "platform": {
-                "http_proxy": {
-                    "enabled": true,
-                    "server": "127.0.0.1",
-                    "server_port": 2325
-                }
-            },
-            "stack": "mixed",
-            "auto_route": true
+  "inbounds": [
+    {
+      "type": "tun",
+      "address": [
+        "172.19.0.0/30",
+        "fdfe:dcba:9876::0/126"
+      ],
+      "stack": "mixed",
+      "auto_route": true,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 7890
         }
-    ]
+      }
+    },
+    {
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 7890
+    }
+  ]
 }
