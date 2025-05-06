@@ -20,7 +20,7 @@
     "outbounds": [
         {"tag": "direct","type": "direct"},
         {"tag": "Proxy","type": "selector","outbounds": ["🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "direct","interrupt_exist_connections": true},
-        {"tag": "TG-SG","type": "selector","outbounds": ["Proxy","🇸🇬 新加坡"],"default": "Proxy","interrupt_exist_connections": true},
+        {"tag": "TG-SG","type": "selector","outbounds": ["Proxy"],"default": "Proxy","interrupt_exist_connections": true},
         {"tag": "TG-US","type": "selector","outbounds": ["Proxy","🇸🇬 新加坡"],"default": "Proxy","interrupt_exist_connections": true},
         {"tag": "TG-EU","type": "selector","outbounds": ["Proxy","🇸🇬 新加坡"],"default": "Proxy","interrupt_exist_connections": true},
         {"tag": "Emby","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
@@ -102,7 +102,7 @@
         {
             "type": "mixed",
             "listen": "127.0.0.1",
-            "listen_port": 7080,
+            "listen_port": 2325,
             "set_system_proxy": false
         },
         {
@@ -115,7 +115,7 @@
                 "http_proxy": {
                     "enabled": true,
                     "server": "127.0.0.1",
-                    "server_port": 7080
+                    "server_port": 2325
                 }
             },
             "stack": "mixed",
