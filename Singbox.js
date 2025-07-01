@@ -17,6 +17,18 @@ let proxies = await produceArtifact({
 config.outbounds.push(...proxies)
 
 config.outbounds.map(i => {
+  if (['守候'].includes(i.tag)) {
+    i.outbounds.push(...getTags(proxies, /守候/i))
+  }
+  if (['Linkeless'].includes(i.tag)) {
+    i.outbounds.push(...getTags(proxies, /Linkeless/i))
+  }
+  if (['DualNet'].includes(i.tag)) {
+    i.outbounds.push(...getTags(proxies, /DualNet/i))
+  }
+  if (['鸭王云'].includes(i.tag)) {
+    i.outbounds.push(...getTags(proxies, /鸭王云/i))
+  }
   if (['🇭🇰 香港'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /港|hk|hongkong|kong kong|🇭🇰/i))
   }
