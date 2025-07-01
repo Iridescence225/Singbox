@@ -11,15 +11,19 @@
                 "cloudflare-dns.com": [ "1.1.1.1", "1.0.0.1" ]
             }
           },
+          {"tag": "DNSgoogle","type": "tls", "server": "8.8.8.8","server_port": 853,"detour": "Proxy"},
           {"tag": "cloudflare","type": "https","server": "1.1.1.1","detour": "Proxy"},
           {"tag": "ali","type": "https","server": "223.6.6.6"},
           {"tag": "remote_fakeip","type": "fakeip","inet4_range": "198.18.0.0/15","inet6_range": "fc00::/18"}
       ],
       "rules": [
+          {"ip_accept_any": true, "server": "hosts" },
+          {"action":"reject", "rule_set":["Ads", "pcdn"] },
           {"clash_mode": "全局直连","action": "route","server": "ali"},
           {"clash_mode": "全局代理","action": "route","server": "remote_fakeip"},
           {"query_type": "HTTPS","action": "reject"},
           {"query_type": ["A","AAAA"],"action": "route","server": "remote_fakeip","rewrite_ttl": 1},
+          {"action":"route", "rule_set":["Google", "YouTube"], "server":"DNSgoogle", "strategy": "ipv4_only"},
           {"rule_set": ["ChinaDomain"],"action": "route","server": "ali"}
       ],
       "final": "cloudflare",
@@ -37,15 +41,21 @@
     {"tag": "Speedtest","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
     {"tag": "Final","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
 
-      {"tag": "🇸🇬 新加坡","type": "selector","outbounds": []},
-      {"tag": "🇭🇰 香港","type": "selector","outbounds": []},
-      {"tag": "🇺🇸 美国","type": "selector","outbounds": []},
-      {"tag": "🇯🇵 日本","type": "selector","outbounds": []}
+    {"tag": "守候","type": "selector","outbounds": []},
+    {"tag": "Linkeless","type": "selector","outbounds": []},
+    {"tag": "鸭王云","type": "selector","outbounds": []},
+    {"tag": "DualNet","type": "selector","outbounds": []},
+
+    {"tag": "🇸🇬 新加坡","type": "selector","outbounds": []},
+    {"tag": "🇭🇰 香港","type": "selector","outbounds": []},
+    {"tag": "🇺🇸 美国","type": "selector","outbounds": []},
+    {"tag": "🇯🇵 日本","type": "selector","outbounds": []}
 
   ],
   "route": {
       "default_domain_resolver": {"server": "ali"},
       "rule_set": [
+        {"tag": "pcdn", "type":"remote", "format":"binary", "url":"https://gh-proxy.com/https://github.com/DDCHlsq/sing-ruleset/raw/refs/heads/ruleset/pcdn.srs", "download_detour":"direct"},
         {"tag": "Ads","type": "remote","format": "binary","url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Ads_SukkaW.srs","download_detour": "direct"},
         {"tag": "TG-SG", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/TG-SG.json", "download_detour": "direct"},
         {"tag": "TG-US", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/TG-US.json", "download_detour": "direct"},
@@ -76,7 +86,7 @@
         {"action": "route", "domain": ["d.pandtv.de","eggtartemby.itsmyduty.top","hk.lilyemby.my","cdn.lilyemby.my","ct.cdn.bgp.yt"],"outbound": "EmbyHK"},
         {"clash_mode": "全局直连","action": "route","outbound": "direct"},
         {"clash_mode": "全局代理","action": "route","outbound": "Proxy"},
-        {"rule_set": ["Ads"],"action": "reject"},
+        {"rule_set": ["Ads","pcdn"],"action": "reject"},
         {"rule_set": ["AI"],"action": "route","outbound": "🇺🇸 美国"},
         {"rule_set": ["YouTube","Microsoft","OneDrive","Github","Twitter","Steam","Epic"],"action": "route","outbound": "🇭🇰 香港"},
         {"rule_set": ["FCM","Google"],"action": "route","outbound": "🇸🇬 新加坡"},
