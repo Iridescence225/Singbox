@@ -42,7 +42,7 @@ config.outbounds.map(i => {
     i.outbounds.push(...getTags(proxies, /美|USA|unitedstates|united states|🇺🇸/i))
   }
   if (['TG-SG'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /新|sg|singapore|🇸🇬|🇭🇰/i))
+    i.outbounds.push(...getTags(proxies, /新|HK|港|sg|singapore|🇸🇬|🇭🇰/i))
   }
   if (['TG-US'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /美|us|unitedstates|united states|🇺🇸/i))
