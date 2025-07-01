@@ -1,5 +1,11 @@
-{
+{  
+  "version": 3
   "rules": [
+    {
+      "domain": [
+        "flora.web.telegram.org"
+      ]
+    },
     {
       "ip_cidr": [
           "91.108.16.0/22",
@@ -11,6 +17,5 @@
           "2001:b28:f23c::/48"
       ]
     }
-  ],
-  "version": 3
+  ]
 }
