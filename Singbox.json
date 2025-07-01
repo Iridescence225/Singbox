@@ -24,7 +24,8 @@
         {"tag": "TG-SG","type": "selector","outbounds": ["Proxy"],"default": "Proxy","interrupt_exist_connections": true},
         {"tag": "TG-US","type": "selector","outbounds": ["Proxy","🇸🇬 新加坡"],"default": "Proxy","interrupt_exist_connections": true},
         {"tag": "TG-EU","type": "selector","outbounds": ["Proxy","🇸🇬 新加坡"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "Emby","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
+        {"tag": "EmbyUS","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
+        {"tag": "EmbyJP","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
         {"tag": "Speedtest","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
         {"tag": "Final","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
 
@@ -113,7 +114,7 @@
         "http_proxy": {
           "enabled": true,
           "server": "127.0.0.1",
-          "server_port": 2325
+          "server_port": 7080
         }
       }
     },
