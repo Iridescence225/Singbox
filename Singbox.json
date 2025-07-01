@@ -20,7 +20,7 @@
           {"clash_mode": "全局代理","action": "route","server": "remote_fakeip"},
           {"query_type": "HTTPS","action": "reject"},
           {"query_type": ["A","AAAA"],"action": "route","server": "remote_fakeip","rewrite_ttl": 1},
-          {"rule_set": ["ChinaDomain","Apple"],"action": "route","server": "ali"}
+          {"rule_set": ["ChinaDomain"],"action": "route","server": "ali"}
       ],
       "final": "cloudflare",
       "independent_cache": true
@@ -79,7 +79,7 @@
         {"rule_set": ["Ads"],"action": "reject"},
         {"rule_set": ["AI"],"action": "route","outbound": "🇺🇸 美国"},
         {"rule_set": ["YouTube","Microsoft","OneDrive","Github","Twitter","Steam","Epic"],"action": "route","outbound": "🇭🇰 香港"},
-        {"rule_set": ["FCM","Google","Spotify"],"action": "route","outbound": "🇸🇬 新加坡"},
+        {"rule_set": ["FCM","Google"],"action": "route","outbound": "🇸🇬 新加坡"},
         {"rule_set": ["TG-SG"],"action": "route","outbound": "TG-SG"},
         {"rule_set": ["TG-US"],"action": "route","outbound": "TG-US"},
         {"rule_set": ["TG-EU"],"action": "route","outbound": "TG-EU"},
