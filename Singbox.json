@@ -1,127 +1,143 @@
 {
-    "dns": {
-        "servers": [
-            {"tag": "cloudflare","address": "https://1.1.1.1/dns-query","detour": "Proxy"},
-            {"tag": "ali","address": "https://223.5.5.5/dns-query","detour": "direct"},
-            {"tag": "fakeip","address": "fakeip"}
-        ],
-        "rules": [
-            {"outbound": "any","action": "route","server": "ali","disable_cache": true},
-            {"clash_mode": "全局直连","action": "route","server": "ali"},
-            {"clash_mode": "全局代理","action": "route","server": "fakeip"},
-            {"query_type": "HTTPS","action": "reject"},
-            {"query_type": ["A","AAAA"],"action": "route","server": "fakeip","rewrite_ttl": 1},
-            {"rule_set": ["cn_domain"],"action": "route","server": "ali"},
-            {"rule_set": ["ChinaDomain"],"action": "route","server": "ali"}
-        ],
-        "final": "cloudflare",
-        "fakeip": {"enabled": true,"inet4_range": "198.18.0.0/15","inet6_range": "fc00::/18"},
-        "independent_cache": true
-    },
-    "outbounds": [
-        {"tag": "direct","type": "direct"},
-        {"tag": "Proxy","type": "selector","outbounds": ["🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "direct","interrupt_exist_connections": true},
-        {"tag": "TG-SG","type": "selector","outbounds": ["Proxy"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "TG-US","type": "selector","outbounds": ["Proxy","🇸🇬 新加坡"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "TG-EU","type": "selector","outbounds": ["Proxy","🇸🇬 新加坡"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "EmbyUS","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "EmbyJP","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "Speedtest","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
-        {"tag": "Final","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
-
-        {"tag": "🇸🇬 新加坡","type": "selector","outbounds": []},
-        {"tag": "🇭🇰 香港","type": "selector","outbounds": []},
-        {"tag": "🇺🇸 美国","type": "selector","outbounds": []},
-        {"tag": "🇯🇵 日本","type": "selector","outbounds": []}
-
-
-    ],
-    "route": {
-        "rule_set": [
-            {"tag": "Ads","type": "remote","format": "binary","url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Ads_SukkaW.srs","download_detour": "direct"},
-            {"tag": "TG-SG", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/TG-SG.json", "download_detour": "direct"},
-            {"tag": "TG-US", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/TG-US.json", "download_detour": "direct"},
-            {"tag": "TG-EU", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/TG-EU.json", "download_detour": "direct"},
-            {"tag": "YouTube", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/YouTube.srs", "download_detour": "direct"},
-            {"tag": "Google", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Google.srs", "download_detour": "direct"},
-            {"tag": "FCM", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/senshinya/singbox_ruleset/raw/main/rule/GoogleFCM/GoogleFCM.srs", "download_detour": "direct"},
-            {"tag": "Microsoft", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Microsoft.srs", "download_detour": "direct"},
-            {"tag": "OneDrive", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/OneDrive.srs", "download_detour": "direct"},
-            {"tag": "Github", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Github.srs", "download_detour": "direct"},
-            {"tag": "Twitter", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Twitter.srs", "download_detour": "direct"},
-            {"tag": "AI", "type": "remote", "format": "binary", "url": "https://git.repcz.link/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs", "download_detour": "direct"},
-            {"tag": "Emby", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/Emby.json", "download_detour": "direct"},
-            {"tag": "Speedtest", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/Speedtest.json", "download_detour": "direct"},
-            {"tag": "Epic", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Epic.srs", "download_detour": "direct"},
-            {"tag": "Steam", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Steam.srs", "download_detour": "direct"},
-            {"tag": "Spotify", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Spotify.srs", "download_detour": "direct"},
-            {"tag": "cn_domain","type": "remote","format": "binary","url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/cn.srs","download_detour": "direct"},
-            {"tag": "ChinaDomain", "type": "remote", "format": "binary", "url": "https://git.repcz.link/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs", "download_detour": "direct"},
-            {"tag": "ChinaIP", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Loyalsoldier/geoip/raw/release/srs/cn.srs", "download_detour": "direct"},
-            {"tag": "geolocation-!cn","type": "remote","format": "binary","url": "https://git.repcz.link/raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs","download_detour": "direct"}
-        ],
-        "rules": [
-            {"action": "sniff","sniffer": ["http","tls","quic","dns"],"timeout": "500ms"},
-            {"type": "logical","mode": "or","rules": [{"port": 53},{"protocol": "dns"}],"action": "hijack-dns"},
-            {"ip_is_private": true,"action": "route","outbound": "direct"},
-            {"clash_mode": "全局直连","action": "route","outbound": "direct"},
-            {"clash_mode": "全局代理","action": "route","outbound": "Proxy"},
-            {"rule_set": ["Ads"],"action": "reject"},
-            {"rule_set": ["AI"],"action": "route","outbound": "🇺🇸 美国"},
-            {"rule_set": ["YouTube","Google","Spotify"],"action": "route","outbound": "🇸🇬 新加坡"},
-            {"rule_set": ["Microsoft","OneDrive","Github","Twitter","Steam","Epic"],"action": "route","outbound": "🇭🇰 香港"},
-            {"rule_set": ["TG-SG"],"action": "route","outbound": "TG-SG"},
-            {"rule_set": ["TG-US"],"action": "route","outbound": "TG-US"},
-            {"rule_set": ["TG-EU"],"action": "route","outbound": "TG-EU"},
-            {"rule_set": ["Emby"],"action": "route","outbound": "Emby"},
-            {"rule_set": ["Speedtest"],"action": "route","outbound": "Proxy"},
-            {"rule_set": ["geolocation-!cn"],"action": "route","outbound": "Proxy"},
-            {"action": "resolve"},
-            {"rule_set": ["FCM","ChinaDomain","ChinaIP","cn_domain"],"action": "route","outbound": "direct"}
-        ],
-        "auto_detect_interface": true,
-        "final": "Final"
-    },
-    "log": {
-        "disabled": false,
-        "level": "info",
-        "output": "sing-box.log",
-        "timestamp": true
-    },
-    "experimental": {
-        "cache_file": {
-            "enabled": true,
-            "store_fakeip": true
-        },
-        "clash_api": {
-            "default_mode": "规则模式",
-            "external_controller": "127.0.0.1:2425",
-            "external_ui": "ui",
-            "external_ui_download_url": "https://git.repcz.link/github.com/Zephyruso/zashboard/releases/latest/download/dist.zip",
-            "external_ui_download_detour": "Proxy"
-        }
-    },
-  "inbounds": [
-    {
-      "type": "tun",
-      "address": [
-        "172.19.0.0/30",
-        "fdfe:dcba:9876::0/126"
+  "dns": {
+      "servers": [
+          {
+            "type": "hosts",
+            "tag": "hosts",
+            "predefined": {
+                "doh.pub": [ "1.12.12.12", "120.53.53.53", "2402:4e00::" ],
+                "dns.alidns.com": [ "223.5.5.5", "223.6.6.6", "2400:3200::1", "2400:3200:baba::1" ],
+                "dns.google": [ "8.8.8.8", "8.8.4.4" ],
+                "cloudflare-dns.com": [ "1.1.1.1", "1.0.0.1" ]
+            }
+          },
+          {"tag": "cloudflare","type": "https","server": "1.1.1.1","detour": "Proxy"},
+          {"tag": "ali","type": "https","server": "223.6.6.6"},
+          {"tag": "remote_fakeip","type": "fakeip","inet4_range": "198.18.0.0/15","inet6_range": "fc00::/18"}
       ],
-      "stack": "mixed",
-      "auto_route": true,
-      "platform": {
-        "http_proxy": {
+      "rules": [
+          {"clash_mode": "全局直连","action": "route","server": "ali"},
+          {"clash_mode": "全局代理","action": "route","server": "remote_fakeip"},
+          {"query_type": "HTTPS","action": "reject"},
+          {"query_type": ["A","AAAA"],"action": "route","server": "remote_fakeip","rewrite_ttl": 1},
+          {"rule_set": ["ChinaDomain","Apple"],"action": "route","server": "ali"}
+      ],
+      "final": "cloudflare",
+      "independent_cache": true
+  },
+  "outbounds": [
+    {"tag": "direct","type": "direct"},
+    {"tag": "Proxy","type": "selector","outbounds": ["🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "direct","interrupt_exist_connections": true},
+    {"tag": "TG-SG","type": "selector","outbounds": ["Proxy"],"default": "Proxy","interrupt_exist_connections": true},
+    {"tag": "TG-US","type": "selector","outbounds": ["Proxy","🇸🇬 新加坡"],"default": "Proxy","interrupt_exist_connections": true},
+    {"tag": "TG-EU","type": "selector","outbounds": ["Proxy","🇸🇬 新加坡"],"default": "Proxy","interrupt_exist_connections": true},
+    {"tag": "EmbyUS","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
+    {"tag": "EmbyHK","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
+    {"tag": "EmbyJP","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
+    {"tag": "Speedtest","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
+    {"tag": "Final","type": "selector","outbounds": ["Proxy","🇭🇰 香港","🇺🇸 美国","🇸🇬 新加坡","🇯🇵 日本","direct"],"default": "Proxy","interrupt_exist_connections": true},
+
+      {"tag": "🇸🇬 新加坡","type": "selector","outbounds": []},
+      {"tag": "🇭🇰 香港","type": "selector","outbounds": []},
+      {"tag": "🇺🇸 美国","type": "selector","outbounds": []},
+      {"tag": "🇯🇵 日本","type": "selector","outbounds": []}
+
+  ],
+  "route": {
+      "default_domain_resolver": {"server": "ali"},
+      "rule_set": [
+        {"tag": "Ads","type": "remote","format": "binary","url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Ads_SukkaW.srs","download_detour": "direct"},
+        {"tag": "TG-SG", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/TG-SG.json", "download_detour": "direct"},
+        {"tag": "TG-US", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/TG-US.json", "download_detour": "direct"},
+        {"tag": "TG-EU", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/TG-EU.json", "download_detour": "direct"},
+        {"tag": "Speedtest", "type": "remote", "format": "source", "url": "https://git.repcz.link/github.com/Iridescence225/Singbox/raw/main/Speedtest.json", "download_detour": "direct"},
+        {"tag": "YouTube", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/YouTube.srs", "download_detour": "direct"},
+        {"tag": "Google", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Google.srs", "download_detour": "direct"},
+        {"tag": "FCM", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/senshinya/singbox_ruleset/raw/main/rule/GoogleFCM/GoogleFCM.srs", "download_detour": "direct"},
+        {"tag": "Microsoft", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Microsoft.srs", "download_detour": "direct"},
+        {"tag": "OneDrive", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/OneDrive.srs", "download_detour": "direct"},
+        {"tag": "Github", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Github.srs", "download_detour": "direct"},
+        {"tag": "Twitter", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Twitter.srs", "download_detour": "direct"},
+        {"tag": "AI", "type": "remote", "format": "binary", "url": "https://git.repcz.link/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs", "download_detour": "direct"},
+        {"tag": "Epic", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Epic.srs", "download_detour": "direct"},
+        {"tag": "Steam", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Steam.srs", "download_detour": "direct"},
+        {"tag": "cn_domain","type": "remote","format": "binary","url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/cn.srs","download_detour": "direct"},
+        {"tag": "ChinaDomain", "type": "remote", "format": "binary", "url": "https://git.repcz.link/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs", "download_detour": "direct"},
+        {"tag": "ChinaIP", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Loyalsoldier/geoip/raw/release/srs/cn.srs", "download_detour": "direct"},
+        {"tag": "geolocation-!cn","type": "remote","format": "binary","url": "https://git.repcz.link/raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs","download_detour": "direct"}
+      ],
+      "rules": [
+        {"action": "sniff","sniffer": ["http","tls","quic","dns"],"timeout": "500ms"},
+        {"type": "logical","mode": "or","rules": [{"port": 53},{"protocol": "dns"}],"action": "hijack-dns"},
+        {"ip_is_private": true,"action": "route","outbound": "direct"},
+        {"action": "route", "domain": ["pandtv.de","cf.lilyemby.my","kessoku-bando.biliblili.uk","pe.cn2gias.uk","emby.cn2gias.uk","media.nijigem.by","default.cdn.bgp.yt","us-w.cdn.bgp.yt","stream2.jingzhe.pro","emby.jingzhe.pro"],"outbound": "EmbyUS"},
+        {"action": "route", "domain_suffix": ["xxlb.net","xmsl.org","pilipiliultra.com","bangumi.ca"],"outbound": "EmbyUS"},
+        {"action": "route", "domain": ["jp1.line.pandtv.de","jp.lilyemby.my"],"outbound": "EmbyJP"},
+        {"action": "route", "domain": ["d.pandtv.de","eggtartemby.itsmyduty.top","hk.lilyemby.my","cdn.lilyemby.my","ct.cdn.bgp.yt"],"outbound": "EmbyHK"},
+        {"clash_mode": "全局直连","action": "route","outbound": "direct"},
+        {"clash_mode": "全局代理","action": "route","outbound": "Proxy"},
+        {"rule_set": ["Ads"],"action": "reject"},
+        {"rule_set": ["AI"],"action": "route","outbound": "🇺🇸 美国"},
+        {"rule_set": ["YouTube","Microsoft","OneDrive","Github","Twitter","Steam","Epic"],"action": "route","outbound": "🇭🇰 香港"},
+        {"rule_set": ["FCM","Google","Spotify"],"action": "route","outbound": "🇸🇬 新加坡"},
+        {"rule_set": ["TG-SG"],"action": "route","outbound": "TG-SG"},
+        {"rule_set": ["TG-US"],"action": "route","outbound": "TG-US"},
+        {"rule_set": ["TG-EU"],"action": "route","outbound": "TG-EU"},
+        {"rule_set": ["Speedtest"],"action": "route","outbound": "Proxy"},
+        {"rule_set": ["geolocation-!cn"],"action": "route","outbound": "Proxy"},
+        {"action": "resolve"},
+        {"rule_set": ["ChinaDomain","ChinaIP","cn_domain"],"action": "route","outbound": "direct"}
+      ],
+      "auto_detect_interface": true,
+      "final": "Final"
+  },
+  "log": {
+      "disabled": false,
+      "level": "info",
+      "output": "sing-box.log",
+      "timestamp": true
+  },
+  "experimental": {
+      "cache_file": {
           "enabled": true,
-          "server": "127.0.0.1",
-          "server_port": 7080
-        }
+          "store_fakeip": true
+      },
+      "clash_api": {
+          "default_mode": "规则模式",
+          "external_controller": "127.0.0.1:9090",
+          "external_ui": "ui",
+          "external_ui_download_url": "https://git.repcz.link/github.com/Zephyruso/zashboard/releases/latest/download/dist.zip",
+          "external_ui_download_detour": "Proxy"
       }
-    },
-    {
-      "type": "mixed",
-      "listen": "127.0.0.1",
-      "listen_port": 2325
-    }
+  },
+  "inbounds": [
+      {
+          "type": "socks",
+          "listen": "127.0.0.1",
+          "listen_port": 2325
+      },
+      {
+          "type": "mixed",
+          "listen": "127.0.0.1",
+          "listen_port": 7080,
+          "set_system_proxy": false
+      },
+      {
+          "type": "tun",
+          "address": [
+              "172.18.0.1/30",
+              "fdfe:dcba:9876::1/126"
+          ],
+          "platform": {
+              "http_proxy": {
+                  "enabled": true,
+                  "server": "127.0.0.1",
+                  "server_port": 7080
+              }
+          },
+          "stack": "mixed",
+          "mtu": 9000,
+          "auto_route": true
+      }
   ]
 }
