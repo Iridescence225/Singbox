@@ -1,5 +1,12 @@
-{
+{  
+  "version": 3
   "rules": [
+    {
+      "domain": [
+        "vesta.web.telegram.org",
+        "venus.web.telegram.org"
+      ]
+    },
     {
       "ip_cidr": [
           "5.28.192.0/18",
@@ -22,5 +29,4 @@
       ]
     }
   ],
-  "version": 3
 }
