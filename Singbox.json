@@ -23,7 +23,7 @@
           {"clash_mode": "全局代理","action": "route","server": "remote_fakeip"},
           {"query_type": "HTTPS","action": "reject"},
           {"query_type": ["A","AAAA"],"action": "route","server": "remote_fakeip","rewrite_ttl": 1},
-          {"action":"route", "rule_set":["Google", "YouTube"], "server":"DNSgoogle", "strategy": "ipv4_only"},
+          {"action":"route", "rule_set":["FCM","Google", "YouTube"], "server":"DNSgoogle", "strategy": "ipv4_only"},
           {"rule_set": ["ChinaDomain"],"action": "route","server": "ali"}
       ],
       "final": "cloudflare",
