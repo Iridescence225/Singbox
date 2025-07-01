@@ -38,7 +38,7 @@
     {"tag": "EmbyUS","type": "selector","outbounds": ["Proxy","守候","Linkeless","鸭王云","DualNet","direct"],"default": "Proxy","interrupt_exist_connections": true},
     {"tag": "EmbyHK","type": "selector","outbounds": ["Proxy","守候","Linkeless","鸭王云","DualNet","direct"],"default": "Proxy","interrupt_exist_connections": true},
     {"tag": "EmbyJP","type": "selector","outbounds": ["Proxy","守候","Linkeless","鸭王云","DualNet","direct"],"default": "Proxy","interrupt_exist_connections": true},
-    {"tag": "Speedtest","type": "selector","outbounds": ["守候","Linkeless","鸭王云","DualNet","direct"],"default": "Proxy","interrupt_exist_connections": true},
+    {"tag": "Speedtest","type": "selector","outbounds": ["Proxy","守候","Linkeless","鸭王云","DualNet","direct"],"default": "Proxy","interrupt_exist_connections": true},
     {"tag": "Final","type": "selector","outbounds": ["Proxy","守候","Linkeless","鸭王云","DualNet","direct"],"default": "Proxy","interrupt_exist_connections": true},
 
     {"tag": "守候","type": "selector","outbounds": []},
