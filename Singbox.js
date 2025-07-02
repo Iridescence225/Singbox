@@ -23,6 +23,9 @@ config.outbounds.map(i => {
   if (['Linkeless'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /Linkeless/i))
   }
+  if (['TKV'].includes(i.tag)) {
+    i.outbounds.push(...getTags(proxies, /TKV/i))
+  }
   if (['DualNet'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /DualNet/i))
   }
@@ -40,6 +43,15 @@ config.outbounds.map(i => {
   }
   if (['🇺🇸 美国'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /美|USA|unitedstates|united states|🇺🇸/i))
+  }
+  if (['EmbyUS'].includes(i.tag)) {
+    i.outbounds.push(...getTags(proxies, /美|USA|unitedstates|united states|🇺🇸/i))
+  }
+  if (['EmbyHK'].includes(i.tag)) {
+    i.outbounds.push(...getTags(proxies, /港|hk|hongkong|kong kong|🇭🇰/i))
+  }
+  if (['EmbyJP'].includes(i.tag)) {
+    i.outbounds.push(...getTags(proxies, /日本|jp|japan|🇯🇵/i))
   }
   if (['TG-SG'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /新|HK|港|sg|singapore|🇸🇬|🇭🇰/i))
