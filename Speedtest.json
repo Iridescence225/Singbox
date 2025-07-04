@@ -9,14 +9,10 @@
       ]
     },
     {
-      "domain": [
+      "domain_suffix": [
         "download.microsoft.com",
         "repo.anaconda.com",
-        "mensura.cdn-apple.com"
-      ]
-    },
-    {
-      "domain_suffix": [
+        "mensura.cdn-apple.com",
         "fast.com",
         "ooklaserver.net",
         "speed.cloudflare.com",
