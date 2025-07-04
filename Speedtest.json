@@ -4,8 +4,15 @@
     {
       "domain_keyword": [
         "speedtest",
-        "speed ",
+        "speed",
         "ovh"
+      ]
+    },
+    {
+      "domain": [
+        "download.microsoft.com",
+        "repo.anaconda.com",
+        "mensura.cdn-apple.com"
       ]
     },
     {
