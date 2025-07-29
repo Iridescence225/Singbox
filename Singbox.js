@@ -17,50 +17,38 @@ let proxies = await produceArtifact({
 config.outbounds.push(...proxies)
 
 config.outbounds.map(i => {
-  if (['守候'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /守候/i))
-  }
-  if (['Linkeless'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /Linkeless/i))
-  }
-  if (['TKV'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /TKV/i))
-  }
-  if (['DualNet'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /DualNet/i))
-  }
-  if (['鸭王云'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /鸭王云/i))
+  if (['Speedtest'].includes(i.tag)) {
+    i.outbounds.push(...getTags(proxies, / /i))
   }
   if (['🇭🇰 香港'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /港|hk|hongkong|kong kong|🇭🇰/i))
+    i.outbounds.push(...getTags(proxies, /香港|hk|hongkong|kong kong|🇭🇰/i))
   }
   if (['🇯🇵 日本'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /日本|jp|japan|🇯🇵/i))
   }
   if (['🇸🇬 新加坡'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /新|sg|singapore|🇸🇬/i))
+    i.outbounds.push(...getTags(proxies, /新加坡|sg|singapore|🇸🇬/i))
   }
   if (['🇺🇸 美国'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /美|USA|unitedstates|united states|🇺🇸/i))
+    i.outbounds.push(...getTags(proxies, /美国|USA|unitedstates|united states|🇺🇸/i))
   }
   if (['EmbyUS'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /美|USA|unitedstates|united states|🇺🇸/i))
+    i.outbounds.push(...getTags(proxies, /美国|USA|unitedstates|united states|🇺🇸/i))
   }
   if (['EmbyHK'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /港|hk|hongkong|kong kong|🇭🇰/i))
+    i.outbounds.push(...getTags(proxies, /香港|hk|hongkong|kong kong|🇭🇰/i))
   }
   if (['EmbyJP'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /日本|jp|japan|🇯🇵/i))
   }
   if (['TG-SG'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /新|HK|港|sg|singapore|🇸🇬|🇭🇰/i))
+    i.outbounds.push(...getTags(proxies, /新加坡|JP|日本|sg|singapore|🇸🇬|🇯🇵/i))
   }
   if (['TG-US'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /美|us|unitedstates|united states|🇺🇸/i))
+    i.outbounds.push(...getTags(proxies, /美国|us|unitedstates|united states|🇺🇸/i))
   }
   if (['TG-EU'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /德|荷|DE|NL|Germany|Netherlands|🇩🇪|🇳🇱/i))
+    i.outbounds.push(...getTags(proxies, /德国|荷兰|DE|NL|Germany|Netherlands|🇩🇪|🇳🇱/i))
   }
 })
 
